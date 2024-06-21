@@ -1,0 +1,61 @@
+# modules = ["python-3.10:v18-20230807-322e88b"]
+# run = "streamlit run main.py"
+
+# [nix]
+# channel = "stable-23_05"
+
+# [unitTest]
+# language = "python3"
+
+# [gitHubImport]
+# requiredFiles = [".replit", "replit.nix"]
+
+# [deployment]
+# run = ["sh", "-c", "streamlit run main.py"]
+# deploymentTarget = "cloudrun"
+
+# [[ports]]
+# localPort = 8501
+# externalPort = 80
+
+# [env]
+# STREAMLIT_SERVER_HEADLESS = "true"
+
+modules = ["python-3.10:v18-20230807-322e88b"]
+run = "streamlit run main.py --server.headless true"
+
+[nix]
+channel = "stable-23_05"
+
+# Add required dependencies in replit.nix
+# You may want a replit.nix file like:
+# ```nix
+# { pkgs }:
+# {
+#   deps = [
+#     pkgs.python310
+#     pkgs.python310Packages.streamlit
+#     pkgs.python310Packages.opencv-python-headless
+#     pkgs.python310Packages.numpy
+#     pkgs.python310Packages.pillow
+#     pkgs.python310Packages.streamlit-drawable-canvas
+#   ];
+# }
+# ```
+
+[unitTest]
+language = "python3"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["sh", "-c", "streamlit run main.py --server.headless true"]
+deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 8501
+externalPort = 80
+
+[env]
+STREAMLIT_SERVER_HEADLESS = "true"
